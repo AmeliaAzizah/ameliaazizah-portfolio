@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amelia Siti Nur A — Backend Developer | Node.js Specialist</title>
+  <meta name="description" content="Portfolio Amelia Siti Nur A, Backend Developer & Node.js Specialist. Berpengalaman membangun REST API dengan NestJS, ExpressJS, dan berbagai database untuk aplikasi performa tinggi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Terapkan tema sebelum halaman dirender agar tidak "flash"
+    (function () {
+      var saved = localStorage.getItem("theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__brand"><span class="nav__prompt">~/</span>amelia</a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#skillset">Skillset</a>
+        <a href="#pengalaman" data-i18n="nav.exp">Pengalaman</a>
+        <a href="#proyek" data-i18n="nav.projects">Proyek</a>
+        <a href="#sertifikat" data-i18n="nav.certs">Sertifikat</a>
+        <a href="#kontak" class="nav__cta" data-i18n="nav.contact">Hubungi Saya</a>
+      </nav>
+
+      <div class="nav__controls">
+        <button class="lang-toggle mono" id="langToggle" aria-label="Ganti bahasa">
+          <span data-lang-opt="id" class="active">ID</span><span class="lang-sep">/</span><span data-lang-opt="en">EN</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema terang/gelap">
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__status"><span class="dot"></span><span data-i18n="hero.status">Open to work · Malang, Jawa Timur</span></p>
+          <h1 class="hero__title">Amelia<br />Siti Nur A</h1>
+          <p class="hero__role" data-i18n="hero.role">Backend Developer — <em>Node.js Specialist</em></p>
+          <p class="hero__desc" data-i18n="hero.desc">
+            Merancang dan membangun backend yang <strong>scalable</strong> dan
+            <strong>maintainable</strong> dengan NodeJS, NestJS, dan ExpressJS.
+            Terbiasa bekerja dalam tim agile, menyelesaikan masalah teknis,
+            dan antusias mempelajari teknologi baru.
+          </p>
+          <div class="hero__actions">
+            <a href="#proyek" class="btn btn--primary" data-i18n="hero.cta1">Lihat Proyek</a>
+            <a href="#kontak" class="btn btn--ghost" data-i18n="hero.cta2">Hubungi Saya</a>
+          </div>
+          <div class="hero__profile">
+            <img src="assets/foto.jpeg" alt="Foto Amelia Siti Nur A" class="hero__photo" />
+            <div class="hero__profile-meta">
+              <span class="mono">Backend Engineer @ STECHOQ</span>
+              <span class="mono muted" data-i18n="hero.meta">Nov 2023 — sekarang</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature: terminal API response -->
+        <div class="terminal" aria-label="Contoh respons API profil">
+          <div class="terminal__bar">
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__title mono">amelia@backend: ~</span>
+          </div>
+          <pre class="terminal__body mono" id="terminalBody"><span class="t-prompt">$</span> <span id="typedCmd"></span><span class="cursor" id="cursor">▋</span><code id="jsonOut"></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLSET ===== -->
+    <section class="section" id="skillset">
+      <div class="container">
+        <p class="endpoint mono reveal"><span class="method">GET</span> /skillset <span class="status-chip">200 OK</span></p>
+        <h2 class="section__title reveal" data-i18n="skills.title">Teknologi yang saya pakai sehari-hari</h2>
+        <div class="skills reveal">
+          <div class="skills__group">
+            <h3 class="skills__label mono">frameworks &amp; runtime</h3>
+            <ul class="chips">
+              <li class="chip chip--adv">NestJS <small>Advanced</small></li>
+              <li class="chip chip--adv">NodeJS <small>Advanced</small></li>
+              <li class="chip chip--adv">ExpressJS <small>Advanced</small></li>
+              <li class="chip">Laravel <small>Beginner</small></li>
+              <li class="chip">WordPress <small>Beginner</small></li>
+            </ul>
+          </div>
+          <div class="skills__group">
+            <h3 class="skills__label mono">languages</h3>
+            <ul class="chips">
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript <small>Intermediate</small></li>
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+            </ul>
+          </div>
+          <div class="skills__group">
+            <h3 class="skills__label mono">databases</h3>
+            <ul class="chips">
+              <li class="chip">MySQL</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">MS SQL</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PENGALAMAN ===== -->
+    <section class="section section--alt" id="pengalaman">
+      <div class="container">
+        <p class="endpoint mono reveal"><span class="method">GET</span> <span data-i18n="exp.endpoint">/pengalaman</span> <span class="status-chip">200 OK</span></p>
+        <h2 class="section__title reveal" data-i18n="exp.title">Pengalaman kerja</h2>
+
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <p class="timeline__date mono" data-i18n="exp.1.date">Nov 2023 — Sekarang</p>
+            <h3 class="timeline__role">Backend Engineer · <span>STECHOQ</span></h3>
+            <ul class="timeline__points" data-i18n="exp.1.points">
+              <li>Mengembangkan backend API untuk berbagai solusi perangkat lunak.</li>
+              <li>Berkolaborasi dengan tim frontend untuk memastikan integrasi yang optimal.</li>
+              <li>Merancang, mengimplementasikan, dan mengoptimalkan API serta database untuk aplikasi performa tinggi.</li>
+            </ul>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <p class="timeline__date mono" data-i18n="exp.2.date">Agu 2022 — Nov 2023</p>
+            <h3 class="timeline__role">Jr. Backend Engineer · <span>SIMTEK</span></h3>
+            <ul class="timeline__points" data-i18n="exp.2.points">
+              <li>Mengembangkan aplikasi berbasis NestJS dan Laravel.</li>
+              <li>Menyelesaikan fitur tambahan dan perbaikan error dari permintaan klien.</li>
+              <li>Berkolaborasi dalam tim pengembangan dengan pendekatan agile.</li>
+            </ul>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <p class="timeline__date mono">Jul — Sep 2021</p>
+            <h3 class="timeline__role" data-i18n="exp.3.role">Intern, Departemen Airport Technical · <span>PT. Angkasa Pura I Juanda</span></h3>
+            <ul class="timeline__points" data-i18n="exp.3.points">
+              <li>Mempelajari sistem hardware dan software yang menunjang keamanan bandara.</li>
+              <li>Mendukung pengelolaan sistem teknologi dan keselamatan di lingkungan bandara.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROYEK ===== -->
+    <section class="section" id="proyek">
+      <div class="container">
+        <p class="endpoint mono reveal"><span class="method">GET</span> <span data-i18n="proj.endpoint">/proyek</span> <span class="status-chip">200 OK</span></p>
+        <h2 class="section__title reveal" data-i18n="proj.title">Proyek pilihan</h2>
+
+        <div class="projects">
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>MAZDA ALC</h3>
+              <span class="badge badge--live mono" data-i18n="proj.badge">aktif</span>
+            </div>
+            <p class="card__date mono" data-i18n="proj.1.date">Jan 2026 — Sekarang</p>
+            <p class="card__desc" data-i18n="proj.1.desc">Sistem backend untuk kebutuhan operasional produksi: REST API untuk integrasi data, monitoring performa, serta optimasi query agar sistem stabil dan efisien.</p>
+            <ul class="tags mono"><li>NodeJS</li><li>ExpressJS</li><li>PostgreSQL</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>IDEAL Dashboard</h3>
+            </div>
+            <p class="card__date mono" data-i18n="proj.2.date">Mar 2025 — Des 2025</p>
+            <p class="card__desc" data-i18n="proj.2.desc">Backend sistem dashboard monitoring: REST API, pengelolaan struktur database, dan optimasi performa serta akurasi data untuk kebutuhan pelaporan.</p>
+            <ul class="tags mono"><li>NodeJS</li><li>ExpressJS</li><li>MySQL</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>Maka Dashboard</h3>
+            </div>
+            <p class="card__date mono" data-i18n="proj.3.date">Des 2023 — Jan 2026</p>
+            <p class="card__desc" data-i18n="proj.3.desc">Backend untuk kebutuhan produksi: API integrasi data produksi dan monitoring performa, dengan debugging serta optimalisasi sistem secara berkala.</p>
+            <ul class="tags mono"><li>NodeJS</li><li>ExpressJS</li><li>MySQL</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>Hospital Apps (SILOAM)</h3>
+            </div>
+            <p class="card__date mono">Sep — Nov 2023</p>
+            <p class="card__desc" data-i18n="proj.4.desc">REST API dengan ExpressJS &amp; TypeScript, perancangan skema database MS SQL dengan optimasi query, dan integrasi frontend untuk manajemen data real-time.</p>
+            <ul class="tags mono"><li>TypeScript</li><li>ExpressJS</li><li>MsSQL</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>Naga Exchange</h3>
+            </div>
+            <p class="card__date mono" data-i18n="proj.5.date">Mar — Agu 2023</p>
+            <p class="card__desc" data-i18n="proj.5.desc">Backend API dengan NestJS, integrasi layanan pihak ketiga untuk kebutuhan transaksi, dan optimasi performa query database untuk mengurangi latency.</p>
+            <ul class="tags mono"><li>NestJS</li><li>PostgreSQL</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__head">
+              <h3>Revamp Web Company</h3>
+            </div>
+            <p class="card__date mono" data-i18n="proj.6.date">Mei — Jun 2023</p>
+            <p class="card__desc" data-i18n="proj.6.desc">Redesain struktur backend dengan Laravel, implementasi UI baru menggunakan Bootstrap, dan optimasi query database untuk kecepatan akses.</p>
+            <ul class="tags mono"><li>Laravel</li><li>MySQL</li><li>Bootstrap</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERTIFIKAT & PENDIDIKAN ===== -->
+    <section class="section section--alt" id="sertifikat">
+      <div class="container">
+        <p class="endpoint mono reveal"><span class="method">GET</span> <span data-i18n="cred.endpoint">/sertifikat</span> <span class="status-chip">200 OK</span></p>
+        <h2 class="section__title reveal" data-i18n="cred.title">Sertifikat &amp; pendidikan</h2>
+
+        <div class="creds">
+          <div class="creds__col reveal">
+            <h3 class="skills__label mono" data-i18n="cred.label1">sertifikat</h3>
+            <ul class="creds__list">
+              <li>Diploma Silver — Olimpiade Pemrograman Indonesia</li>
+              <li>UKK Certificate (NodeJS &amp; ReactJS)</li>
+              <li>Oracle Academy: Java Foundations</li>
+              <li>MTA: HTML &amp; CSS | Database Fundamentals</li>
+              <li>Apple Teacher Certificate</li>
+            </ul>
+          </div>
+          <div class="creds__col reveal">
+            <h3 class="skills__label mono" data-i18n="cred.label2">pendidikan</h3>
+            <ul class="creds__list creds__list--edu">
+              <li>
+                <strong>Universitas Terbuka Jakarta</strong>
+                <span data-i18n="cred.edu1">S1 Sistem Informasi · 2023 — 2027 (on-going)</span>
+              </li>
+              <li>
+                <strong>SMK Telkom Malang</strong>
+                <span data-i18n="cred.edu2">Rekayasa Perangkat Lunak (RPL) · 2019 — 2022</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KONTAK ===== -->
+    <section class="section contact" id="kontak">
+      <div class="container">
+        <p class="endpoint mono reveal"><span class="method method--post">POST</span> <span data-i18n="contact.endpoint">/kontak</span> <span class="status-chip">201 Created</span></p>
+        <h2 class="section__title reveal" data-i18n="contact.title">Mari bekerja sama</h2>
+        <p class="contact__lead reveal" data-i18n="contact.lead">Punya proyek backend yang butuh API rapi, cepat, dan mudah dirawat? Saya terbuka untuk peluang kerja maupun kolaborasi.</p>
+        <div class="contact__links reveal">
+          <a class="contact__item" href="mailto:ameliasna462@gmail.com">
+            <span class="mono muted">email</span>
+            <span>ameliasna462@gmail.com</span>
+          </a>
+          <a class="contact__item" href="https://wa.me/6282333841292" target="_blank" rel="noopener">
+            <span class="mono muted">whatsapp</span>
+            <span>0823-3384-1292</span>
+          </a>
+          <a class="contact__item" href="https://www.linkedin.com/in/amelia-azizah" target="_blank" rel="noopener">
+            <span class="mono muted">linkedin</span>
+            <span>Amelia Azizah</span>
+          </a>
+          <a class="contact__item" href="https://github.com/AmeliaAzizah" target="_blank" rel="noopener">
+            <span class="mono muted">github</span>
+            <span>AmeliaAzizah</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="mono">© <span id="year"></span> Amelia Siti Nur A</span>
+      <span class="mono muted" data-i18n="footer.note">Dibangun dengan HTML, CSS &amp; JS — tanpa framework.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
