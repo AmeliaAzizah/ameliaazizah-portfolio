@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://NAMA-SITE.netlify.app/sitemap.xml
