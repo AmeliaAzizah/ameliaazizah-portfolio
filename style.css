@@ -98,6 +98,12 @@ ul { list-style: none; }
   font-size: 1.05rem;
 }
 
+.nav__cursor {
+  color: var(--teal);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
 .nav__prompt { color: var(--teal); }
 
 .nav__links {
@@ -277,6 +283,11 @@ ul { list-style: none; }
 
 .btn--ghost { border: 1.5px solid var(--line); background: var(--surface); }
 .btn--ghost:hover { border-color: var(--ink); }
+
+.btn--cv { border-color: var(--teal); color: var(--teal-strong); }
+.btn--cv:hover { border-color: var(--teal-strong); }
+.cv-arrow { display: inline-block; transition: transform 0.2s ease; }
+.btn--cv:hover .cv-arrow { transform: translateY(3px); }
 
 .hero__profile {
   display: flex;
